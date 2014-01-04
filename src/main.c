@@ -1,4 +1,4 @@
-#include "snake.h"
+#include "engine.h"
 
 int main(int argc, char *argv[]){
   int quit_game = 0, current_char, start_game = 0;
