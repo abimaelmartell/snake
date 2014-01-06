@@ -17,3 +17,27 @@ void initialize_snake(struct snake_obj *snake){
   snake->direction = DIRECTION_RIGHT;
   snake->is_playing = 0;
 }
+
+void set_direction(struct snake_obj *snake, int input_char){
+  int direction;
+
+  switch (input_char) {
+    case KEY_UP:
+      direction = DIRECTION_UP;
+      break;
+    case KEY_DOWN:
+      direction = DIRECTION_DOWN;
+      break;
+    case KEY_LEFT:
+      direction = DIRECTION_LEFT;
+      break;
+    case KEY_RIGHT:
+      direction = DIRECTION_RIGHT;
+      break;
+    default:
+      return;
+      break;
+  }
+
+  snake->direction = direction;
+}

@@ -16,3 +16,4 @@ struct snake_obj{
 
 extern void draw_snake(struct snake_obj *snake);
 extern void initialize_snake(struct snake_obj *snake);
+extern void set_direction(struct snake_obj *snake, int input_char);

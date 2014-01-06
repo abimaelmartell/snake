@@ -1,5 +1,21 @@
 #include "engine.h"
 
+void engine_start(void){
+  initscr();
+  start_color();
+
+  raw();
+  nodelay(stdscr, TRUE);
+  noecho();
+  nonl();
+  curs_set(0);
+  keypad(stdscr, TRUE);
+  refresh();
+
+  draw_border();
+  print_welcome_message();
+}
+
 void draw_border(void){
   int i, o;
   for(i = 0; i < LINES; i++){
@@ -23,27 +39,22 @@ void print_welcome_message(void){
   text_offset = strlen(WELCOME_MESSAGE) / 2;
 
   pos_y = pos_y - text_offset;
-  pos_x = pos_x - 3; // this is just an offset, nothing important
+  pos_x = pos_x - 3; // this is just an offset, not important
   
   mvprintw(pos_x, pos_y, "%s", WELCOME_MESSAGE);
 }
 
 int get_speed(){
-  return 100000;
+  return 200000;
 }
 
-int play_game(int direction, struct snake_obj *snake){
+int play_game(struct snake_obj *snake){
   draw_border();
   draw_snake(snake);
-
-  if(direction == -1){
-    direction = snake->direction;
-  }
 
   snake->position_x++;
 
   usleep(get_speed());
   return 1;
 }
-
 

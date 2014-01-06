@@ -1,4 +1,4 @@
-#include <curses.h>
+#include <ncurses.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -11,4 +11,5 @@
 extern void draw_border(void);
 extern void print_welcome_message(void);
 extern int get_speed(void);
-extern int play_game(int character, struct snake_obj *snake);
+extern int play_game(struct snake_obj *snake);
+extern void engine_start(void);
