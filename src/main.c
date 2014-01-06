@@ -7,10 +7,12 @@ int main(int argc, char *argv[]){
   initscr();
   start_color();
 
-  nodelay(stdscr, true);
+  raw();
+  nodelay(stdscr, TRUE);
   noecho();
   nonl();
   curs_set(0);
+  refresh();
 
   draw_border();
   print_welcome_message();
@@ -21,7 +23,6 @@ int main(int argc, char *argv[]){
 
     if(start_game){
       if(play_game(current_char, &snake) == 0){
-      }else{
         start_game = 0;
       }
     }
@@ -31,8 +32,10 @@ int main(int argc, char *argv[]){
         quit_game = 1;
         break;
       case KEY_ENTER_RAW:
-       start_game = 1;
-       draw_border();
+       if(start_game == 0){
+         start_game = 1;
+         draw_border();
+       }
        break;
     }
 

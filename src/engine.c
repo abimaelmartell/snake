@@ -28,13 +28,21 @@ void print_welcome_message(void){
   mvprintw(pos_x, pos_y, "%s", WELCOME_MESSAGE);
 }
 
+int get_speed(){
+  return 100000;
+}
+
 int play_game(int direction, struct snake_obj *snake){
+  draw_border();
   draw_snake(snake);
 
   if(direction == -1){
     direction = snake->direction;
   }
 
+  snake->position_x++;
+
+  usleep(get_speed());
   return 1;
 }
 
