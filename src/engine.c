@@ -52,11 +52,11 @@ int get_speed(){
   return 200000;
 }
 
-int play_game(struct snake_obj *snake){
+int play_game(){
   draw_border();
-  draw_snake(snake);
+  draw_snake();
 
-  update_position(snake);
+  update_position();
 
   usleep(get_speed());
   return 1;

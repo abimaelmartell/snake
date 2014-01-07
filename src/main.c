@@ -2,10 +2,9 @@
 
 int main(int argc, char *argv[]){
   int quit_game = 0, current_char, start_game = 0;
-  struct snake_obj snake;
 
   engine_start();
-  initialize_snake(&snake);
+  initialize_snake();
 
   while(quit_game == 0){
     current_char = getch();
@@ -21,21 +20,21 @@ int main(int argc, char *argv[]){
         }
         break;
       case KEY_UP:
-        set_direction(&snake, DIRECTION_UP);
+        set_direction(DIRECTION_UP);
         break;
       case KEY_DOWN:
-        set_direction(&snake, DIRECTION_DOWN);
+        set_direction(DIRECTION_DOWN);
         break;
       case KEY_LEFT:
-        set_direction(&snake, DIRECTION_LEFT);
+        set_direction(DIRECTION_LEFT);
         break;
       case KEY_RIGHT:
-        set_direction(&snake, DIRECTION_RIGHT);
+        set_direction(DIRECTION_RIGHT);
         break;
     }
 
     if(start_game){
-      if(play_game(&snake) == 0){
+      if(play_game() == 0){
         start_game = 0;
       }
     }

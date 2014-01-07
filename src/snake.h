@@ -6,7 +6,6 @@
 
 #define DEFAULT_LENGTH 20
 
-
 /**
  * Represents each piece of the snake's body
  **/
@@ -26,8 +25,10 @@ struct snake_obj{
   struct snake_piece *pieces;
 } snake_obj;
 
-extern void draw_snake(struct snake_obj *snake);
-extern void initialize_snake(struct snake_obj *snake);
-extern void set_direction(struct snake_obj *snake, int input_char);
-extern void increase_length(struct snake_obj *snake, int how_much);
-extern void update_position(struct snake_obj *snake);
+extern struct snake_obj snake;
+
+extern void draw_snake();
+extern void initialize_snake();
+extern void set_direction(int input_char);
+extern void increase_length(int how_much);
+extern void update_position();
