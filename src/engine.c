@@ -1,9 +1,11 @@
 #include "engine.h"
 
 void engine_start(void){
+  // start ncurses screen
   initscr();
   start_color();
 
+  // customizations
   raw();
   nodelay(stdscr, TRUE);
   noecho();
@@ -12,6 +14,7 @@ void engine_start(void){
   keypad(stdscr, TRUE);
   refresh();
 
+  // render game
   draw_border();
   print_welcome_message();
 }
@@ -45,6 +48,7 @@ void print_welcome_message(void){
 }
 
 int get_speed(){
+  // TODO: calculate this value based on a level or something
   return 200000;
 }
 
@@ -52,7 +56,7 @@ int play_game(struct snake_obj *snake){
   draw_border();
   draw_snake(snake);
 
-  snake->position_x++;
+  update_position(snake);
 
   usleep(get_speed());
   return 1;

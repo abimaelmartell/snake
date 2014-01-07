@@ -21,10 +21,16 @@ int main(int argc, char *argv[]){
         }
         break;
       case KEY_UP:
+        set_direction(&snake, DIRECTION_UP);
+        break;
       case KEY_DOWN:
+        set_direction(&snake, DIRECTION_DOWN);
+        break;
       case KEY_LEFT:
+        set_direction(&snake, DIRECTION_LEFT);
+        break;
       case KEY_RIGHT:
-        set_direction(&snake, current_char);
+        set_direction(&snake, DIRECTION_RIGHT);
         break;
     }
 
@@ -35,10 +41,8 @@ int main(int argc, char *argv[]){
     }
 
     refresh();
-
   }
 
   endwin();
   return 1;
 }
-
