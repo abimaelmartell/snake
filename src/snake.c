@@ -3,12 +3,13 @@
 struct snake_obj snake;
 
 void draw_snake(){
-  int start_pos_x, i;
-
-  start_pos_x = snake.position_x - snake.length;
-
+  int i;
   for(i = 0; i < snake.length; i++){
-    mvaddch(snake.pieces[i].y, snake.pieces[i].x + i, '@');
+    mvaddch(
+      snake.pieces[i].y,
+      snake.pieces[i].x,
+      i == 0 ? '@' : '#'
+    );
   }
 }
 
@@ -36,7 +37,6 @@ void set_direction(int new_direction){
     (snake.direction == DIRECTION_DOWN && new_direction != DIRECTION_UP)
   )
     snake.direction = new_direction;
-
 }
 
 void increase_length(int how_much){
@@ -53,9 +53,9 @@ void increase_length(int how_much){
 void update_position(){
   int i;
 
-  for(i = snake.length -1; i > 0; i--){
-    snake.pieces[i].x = snake.pieces[i - 1].x;
-    snake.pieces[i].y = snake.pieces[i - 1].y;
+  for(i = (snake.length-1); i > 0; i--){
+    snake.pieces[i].x = snake.pieces[i-1].x;
+    snake.pieces[i].y = snake.pieces[i-1].y;
   }
 
   if(snake.direction == DIRECTION_RIGHT)

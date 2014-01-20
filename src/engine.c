@@ -54,9 +54,9 @@ int get_speed(){
 
 int play_game(){
   draw_border();
+  update_position();
   draw_snake();
 
-  update_position();
 
   usleep(get_speed());
   return 1;
