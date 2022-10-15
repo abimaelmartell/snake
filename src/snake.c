@@ -79,10 +79,21 @@ int check_snake_position(){
   // check if crash with himself
   int i;
 
-  for(i = (snake.length-1); i > 0; i--){
+  for (i = (snake.length-1); i > 0; i--){
     if (snake.pieces[0].x == snake.pieces[i].x && snake.pieces[0].y == snake.pieces[i].y) {
       return 1;
     }
+  }
+
+  // check if in borders
+  if (snake.pieces[0].x == 0) {
+    snake.pieces[0].x = COLS;
+  } else if (snake.pieces[0].x == COLS) {
+    snake.pieces[0].x = 0;
+  } else if (snake.pieces[0].y == 0) {
+    snake.pieces[0].y = LINES;
+  } else if (snake.pieces[0].y == LINES) {
+    snake.pieces[0].y = 0;
   }
 
   return 0;
