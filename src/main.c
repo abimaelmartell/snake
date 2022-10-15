@@ -5,6 +5,7 @@ int main(int argc, char *argv[]){
 
   engine_start();
   initialize_snake();
+  position_apple();
 
   while(quit_game == 0){
     current_char = getch();

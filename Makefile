@@ -1,5 +1,5 @@
-HEADERS = engine.h snake.h
-OBJECTS = src/main.o src/snake.o src/engine.o
+HEADERS = engine.h snake.h apple.h
+OBJECTS = src/main.o src/apple.o src/snake.o src/engine.o
 
 LIBS = -lncurses
 

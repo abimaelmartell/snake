@@ -67,3 +67,23 @@ void update_position(){
   else if(snake.direction == DIRECTION_DOWN)
     snake.pieces[0].y += 1;
 }
+
+int check_snake_position(){
+  // is eating apple
+  if (snake.pieces[0].x == apple.x && snake.pieces[0].y == apple.y) {
+    snake.length++;
+
+    position_apple();
+  }
+
+  // check if crash with himself
+  int i;
+
+  for(i = (snake.length-1); i > 0; i--){
+    if (snake.pieces[0].x == snake.pieces[i].x && snake.pieces[0].y == snake.pieces[i].y) {
+      return 1;
+    }
+  }
+
+  return 0;
+}
