@@ -4,17 +4,18 @@
 
 struct apple_obj apple;
 
-void draw_apple(){
+void draw_apple()
+{
   int i;
 
-    mvaddch(
+  mvaddch(
       apple.y,
       apple.x,
-      APPLE_CHAR
-    );
+      APPLE_CHAR);
 }
 
-void position_apple(){
+void position_apple()
+{
   int y = rand() % LINES;
   int x = rand() % COLS;
   apple.y = y;

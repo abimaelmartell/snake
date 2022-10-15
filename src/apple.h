@@ -3,7 +3,8 @@
 /**
  * Represents the apple
  **/
-struct apple_obj {
+struct apple_obj
+{
   int x, y;
 } apple_obj;
 

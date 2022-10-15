@@ -2,7 +2,8 @@
 
 int is_gameover = 0;
 
-void engine_start(void){
+void engine_start(void)
+{
   // start ncurses screen
   initscr();
   start_color();
@@ -21,21 +22,28 @@ void engine_start(void){
   print_welcome_message();
 }
 
-void draw_border(void){
+void draw_border(void)
+{
   int i, o;
-  for(i = 0; i < LINES; i++){
-    for(o = 0; o < COLS; o++){
-      if(i == 0 || i == LINES -1 ||
-        o == 0 || o == COLS -1){
+  for (i = 0; i < LINES; i++)
+  {
+    for (o = 0; o < COLS; o++)
+    {
+      if (i == 0 || i == LINES - 1 ||
+          o == 0 || o == COLS - 1)
+      {
         mvaddch(i, o, '#');
-      }else{
+      }
+      else
+      {
         mvaddch(i, o, ' ');
       }
     }
   }
 }
 
-void print_welcome_message(void){
+void print_welcome_message(void)
+{
   int pos_x, pos_y, text_offset;
 
   pos_x = LINES / 2;
@@ -49,7 +57,8 @@ void print_welcome_message(void){
   mvprintw(pos_x, pos_y, "%s", WELCOME_MESSAGE);
 }
 
-int get_speed(){
+int get_speed()
+{
   if (snake.length > 5)
     return 30000;
   if (snake.length > 10)
@@ -62,7 +71,8 @@ int get_speed(){
   return 50000;
 }
 
-void print_gameover_message() {
+void print_gameover_message()
+{
   int msg_length = strlen(GAMEOVER_MESSAGE) + 10;
   char msg[msg_length];
   int pos_x, pos_y, text_offset;
@@ -80,8 +90,10 @@ void print_gameover_message() {
   mvprintw(pos_x, pos_y, "%s", msg);
 }
 
-int play_game(){
-  if (is_gameover == 1) {
+int play_game()
+{
+  if (is_gameover == 1)
+  {
     print_gameover_message();
     return 0;
   }
@@ -96,4 +108,3 @@ int play_game(){
   usleep(get_speed());
   return 1;
 }
-
